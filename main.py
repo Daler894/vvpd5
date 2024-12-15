@@ -33,3 +33,36 @@ def calculate_sh(x, iterations=10):
     for n in range(iterations):
         result += x**(2*n+1) / math.factorial(2*n+1)
     return result
+
+def main():
+    """
+    Основное меню программы.
+    """
+    while True:
+        print("\nМеню программы:")
+        print("1. Вычислить e^x")
+        print("2. Вычислить sh(x)")
+        print("3. Выход")
+        choice = input("Введите номер действия: ")
+
+        if choice == "1":
+            try:
+                x = float(input("Введите значение x для e^x: "))
+                print(f"Результат: e^{x} = {calculate_ex(x)}")
+            except ValueError:
+                print("Ошибка: введите корректное число!")
+        elif choice == "2":
+            try:
+                x = float(input("Введите значение x для sh(x): "))
+                print(f"Результат: sh({x}) = {calculate_sh(x)}")
+            except ValueError:
+                print("Ошибка: введите корректное число!")
+        elif choice == "3":
+            print("Выход из программы.")
+            break
+        else:
+            print("Ошибка: выберите корректный номер действия!")
+
+
+if __name__ == "__main__":
+    main()
